@@ -1,0 +1,67 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Output of `go build`
+*.o
+*.a
+*.lo
+*.la
+*.ll
+*.bc
+
+# Go build directory
+/build/
+bin/
+dist/
+cmd/*/bin/
+
+# Go test binary
+*.test
+
+# Go coverage output
+*.cover
+*.cov
+*.coverage
+coverage.txt
+
+# Go workspace stuff
+go.work
+go.work.sum
+
+# Dependency directories (vendor in case of vendoring)
+vendor/
+
+# IDE / Editor settings
+.vscode/
+.idea/
+*.iml
+
+# Logs
+*.log
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+
+# Module cache (optional, usually not committed)
+/pkg/mod/
+/go.sum
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Config files (if you don’t want them in git)
+*.env
+.env.*
