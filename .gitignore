@@ -65,3 +65,5 @@ docker-compose.override.yml
 # Config files (if you don’t want them in git)
 *.env
 .env.*
+
+*.json

@@ -7,10 +7,21 @@ import (
 )
 
 func Router(r *gin.Engine) {
+	// 在gin中使用cors中间件
+	r.Use(func(c *gin.Context) {
+		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+		c.Writer.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+		c.Writer.Header().Set("Access-Control-Allow-Headers", "Origin, Content-Type, Accept, Authorization")
+		if c.Request.Method == "OPTIONS" {
+			c.AbortWithStatus(204)
+			return
+		}
+		c.Next()
+	})
+
 	projectApi := api.NewProjectApi()
 	participantApi := api.NewParticipantApi()
 	projectGroup := r.Group("/project")
-
 	{
 		projectGroup.POST("/create", projectApi.CreateProject)
 		projectGroup.PUT("/start", projectApi.StartProject)
