@@ -19,6 +19,7 @@ func NewParticipantApi() *ParticipantApi {
 	}
 }
 
+// 参与者参与项目
 func (api *ParticipantApi) Participate(c *gin.Context) {
 	var req ParticipateRequest
 	if err := c.ShouldBindJSON(&req); err != nil {
@@ -80,7 +81,7 @@ func (api *ParticipantApi) ParticipatedProjects(c *gin.Context) {
 		ApiFailed(c, err)
 		return
 	}
-	var resp []ParticipateInfoResponse
+	resp := make([]ParticipateInfoResponse, 0)
 	// 获取项目信息
 	for _, participate := range participated {
 		project, err := api.projectService.GetOneByOnchainID(participate.ProjectOnchainID)

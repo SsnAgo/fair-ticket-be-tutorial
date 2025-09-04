@@ -7,17 +7,24 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+/*
+封装Api返回结果的函数
+*/
+
+// 成功和失败的code常量
 const (
 	SUCCESS = 0
 	FAILED  = 7
 )
 
+// 统一返回结果
 type Result struct {
 	Code    int    `json:"code"`
 	Data    any    `json:"data"`
 	Message string `json:"message"`
 }
 
+// 成功返回结果
 func ApiSuccess(c *gin.Context, data any) {
 	c.JSON(http.StatusOK, Result{
 		Code: SUCCESS,
@@ -25,6 +32,7 @@ func ApiSuccess(c *gin.Context, data any) {
 	})
 }
 
+// 失败返回结果
 func ApiFailed(c *gin.Context, err error) {
 	c.JSON(http.StatusOK, Result{
 		Code:    FAILED,

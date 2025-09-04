@@ -1,6 +1,8 @@
 package api
 
 import (
+	"errors"
+	"fair-ticket-be-tutorial/cryptoo"
 	"fair-ticket-be-tutorial/service"
 
 	"github.com/gin-gonic/gin"
@@ -18,10 +20,15 @@ func NewProjectApi() *ProjectApi {
 	}
 }
 
+// 创建项目
 func (api *ProjectApi) CreateProject(c *gin.Context) {
 	var req ProjectCreateRequest
 	if err := c.ShouldBindJSON(&req); err != nil {
 		ApiFailed(c, err)
+		return
+	}
+	if !cryptoo.VerifySignature(req.Message, req.Signature, req.Owner) {
+		ApiFailed(c, errors.New("signature verification failed"))
 		return
 	}
 	tx, err := api.projectService.Create(req.Name, req.Description, req.ImageURL, req.TotalSupply, req.Owner)

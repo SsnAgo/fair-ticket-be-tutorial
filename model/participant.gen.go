@@ -17,14 +17,14 @@ type Participant struct {
 	ID               int64          `gorm:"column:id;primaryKey;autoIncrement:true" json:"id"`
 	Name             string         `gorm:"column:name;not null" json:"name"`
 	Address          string         `gorm:"column:address;not null" json:"address"`
-	LuckyNum         int64          `gorm:"column:lucky_num;not null" json:"lucky_num"`
-	ProjectID        int64          `gorm:"column:project_id;not null" json:"project_id"`
-	ProjectOnchainID int64          `gorm:"column:project_onchain_id;not null" json:"project_onchain_id"`
+	LuckyNum         int64          `gorm:"column:lucky_num;not null" json:"luckyNum"`
+	ProjectID        int64          `gorm:"column:project_id;not null" json:"projectId"`
+	ProjectOnchainID int64          `gorm:"column:project_onchain_id;not null" json:"projectOnchainId"`
 	Win              bool           `gorm:"column:win;not null" json:"win"`
-	MerkleProof      string         `gorm:"column:merkle_proof;not null;comment:数组字符串" json:"merkle_proof"` // 数组字符串
-	CreatedAt        time.Time      `gorm:"column:created_at;not null" json:"created_at"`
-	UpdatedAt        time.Time      `gorm:"column:updated_at;not null" json:"updated_at"`
-	DeletedAt        gorm.DeletedAt `gorm:"column:deleted_at" json:"deleted_at"`
+	MerkleProof      string         `gorm:"column:merkle_proof;not null;comment:数组字符串" json:"merkleProof"` // 数组字符串
+	CreatedAt        time.Time      `gorm:"column:created_at;not null" json:"createdAt"`
+	UpdatedAt        time.Time      `gorm:"column:updated_at;not null" json:"updatedAt"`
+	DeletedAt        gorm.DeletedAt `gorm:"column:deleted_at" json:"deletedAt"`
 }
 
 // TableName Participant's table name

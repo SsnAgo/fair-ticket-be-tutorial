@@ -15,19 +15,19 @@ const TableNameProject = "project"
 // Project mapped from table <project>
 type Project struct {
 	ID          int32          `gorm:"column:id;primaryKey;autoIncrement:true;comment:自增id" json:"id"`                // 自增id
-	OnchainID   int64          `gorm:"column:onchain_id;not null;comment:智能合约中的project id" json:"onchain_id"`         // 智能合约中的project id
+	OnchainID   int64          `gorm:"column:onchain_id;not null;comment:智能合约中的project id" json:"onchainId"`          // 智能合约中的project id
 	Fingerprint string         `gorm:"column:fingerprint;not null;comment:链上传入，emit事件带出，用于关联链上链下" json:"fingerprint"` // 链上传入，emit事件带出，用于关联链上链下
 	Name        string         `gorm:"column:name;not null" json:"name"`
 	Description string         `gorm:"column:description" json:"description"`
-	ImageURL    string         `gorm:"column:image_url;not null" json:"image_url"`
-	TotalSupply int32          `gorm:"column:total_supply;not null" json:"total_supply"`
-	LotteryNum  int64          `gorm:"column:lottery_num;not null" json:"lottery_num"`
-	MerkleRoot  string         `gorm:"column:merkle_root;not null" json:"merkle_root"`
+	ImageURL    string         `gorm:"column:image_url;not null" json:"imageUrl"`
+	TotalSupply int32          `gorm:"column:total_supply;not null" json:"totalSupply"`
+	LotteryNum  int64          `gorm:"column:lottery_num;not null" json:"lotteryNum"`
+	MerkleRoot  string         `gorm:"column:merkle_root;not null" json:"merkleRoot"`
 	Status      int32          `gorm:"column:status;not null" json:"status"`
 	Owner       string         `gorm:"column:owner;not null" json:"owner"`
-	CreatedAt   time.Time      `gorm:"column:created_at;not null" json:"created_at"`
-	UpdatedAt   time.Time      `gorm:"column:updated_at;not null" json:"updated_at"`
-	DeletedAt   gorm.DeletedAt `gorm:"column:deleted_at" json:"deleted_at"`
+	CreatedAt   time.Time      `gorm:"column:created_at;not null" json:"createdAt"`
+	UpdatedAt   time.Time      `gorm:"column:updated_at;not null" json:"updatedAt"`
+	DeletedAt   gorm.DeletedAt `gorm:"column:deleted_at" json:"deletedAt"`
 }
 
 // TableName Project's table name
